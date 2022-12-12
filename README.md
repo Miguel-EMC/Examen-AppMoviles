@@ -1,6 +1,4 @@
 <h3 align="left">Integrantes: </h3>
-
-- :Kevin Pinanjota
-
-- :MIguel Muzo
+- Kevin Pinanjota
+- MIguel Muzo
 
