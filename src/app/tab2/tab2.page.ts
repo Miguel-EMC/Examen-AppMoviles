@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
 import { UserPhoto, PhotoService } from '../services/photo.service';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab2',
@@ -9,7 +10,8 @@ import { UserPhoto, PhotoService } from '../services/photo.service';
 })
 export class Tab2Page {
 
-  constructor(public photoService: PhotoService, public actionSheetController: ActionSheetController) {}
+  constructor(public photoService: PhotoService, public actionSheetController: ActionSheetController,
+    public menuControler: MenuController) {}
 
   async ngOnInit() {
     await this.photoService.loadSaved();
@@ -35,5 +37,8 @@ export class Tab2Page {
       }]
     });
     await actionSheet.present();
+  }
+  openMenu() {
+    this.menuControler.toggle('principal');
   }
 }

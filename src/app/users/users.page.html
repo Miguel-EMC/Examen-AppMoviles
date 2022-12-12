@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Usuario que registra los datos</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon  color="primary" slot="icon-only" name="menu-outline">Menu</ion-icon>      
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h3 class="subtitulo encabezado">Ingrese sus datos</h3>
+  <ion-item>
+    <ion-label class="normal" position="floating">Nombre: </ion-label>
+    <ion-input [(ngModel)]="name"  class="normal" type="text" inputmode="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label class="normal" position="floating">Apellido: </ion-label>
+    <ion-input [(ngModel)]="last_name" class="normal" type="text" inputmode="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label class="normal" position="floating">Cédula: </ion-label>
+    <ion-input [(ngModel)]="cedula" class="normal" type="text" inputmode="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label class="normal" position="floating">Numero de casa censada: </ion-label>
+    <ion-input [(ngModel)]="num_houses" class="normal" type="text" inputmode="text"></ion-input>
+  </ion-item>
+
+  <ion-button 
+  color="tertiary"
+  style="margin: 30px;"
+  expand="full"
+  (click)="guardarInfo()"
+  >
+    Guardar
+  </ion-button>
+</ion-content>
