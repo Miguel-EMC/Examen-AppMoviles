@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+    <ion-buttons slot="start">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label class="normal" position="floating">correo electronico: </ion-label>
+    <ion-input [(ngModel)]="email" class="normal" type="email" inputmode="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label class="normal" position="floating">password: </ion-label>
+    <ion-input [(ngModel)]="password" class="normal" type="password" inputmode="password"></ion-input>
+  </ion-item>
+
+  <ion-button 
+  color="tertiary"
+  style="margin: 30px;"
+  expand="full"
+  [routerLink]="['/']"
+  >
+    Iniciar Sesión
+  </ion-button>
+</ion-content>

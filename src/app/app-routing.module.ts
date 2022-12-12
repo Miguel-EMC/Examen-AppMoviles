@@ -18,9 +18,14 @@ const routes: Routes = [
   {
     path: 'general-data',
     loadChildren: () => import('./general-data/general-data.module').then( m => m.GeneralDataPageModule)
-  },  {
+  },
+  {
     path: 'users',
     loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
   }
 
 
