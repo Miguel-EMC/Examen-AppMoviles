@@ -26,10 +26,28 @@
     <ion-input [(ngModel)]="cedula" class="normal" type="text" inputmode="text"></ion-input>
   </ion-item>
 
+  
   <ion-item>
     <ion-label class="normal" position="floating">Miembros de familia: </ion-label>
     <ion-input [(ngModel)]="num_family" class="normal" type="numeric" inputmode="numeric"></ion-input>
   </ion-item>
+
+  <h3 class="subtitulo encabezado">Foto</h3>
+
+  <ion-item>
+    <ion-label class="normal">Foto</ion-label>
+    <ion-buttons slot="end">
+      <ion-button>
+        <label for="file-upload">
+          <ion-icon slot="icon-only" name="camera-outline"></ion-icon>
+        </label>
+        <input (change)="newImageUpload($event)" id="file-upload" style="display: none;" type="file" accept="image/*">
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+  <img class="image" [src]="newImage">
+
   <h3 class="subtitulo encabezado">Obtener coordenadas del domiciolio</h3>
   <ion-item>
     <ion-label class="normal">Latitud: {{latitud}}</ion-label>

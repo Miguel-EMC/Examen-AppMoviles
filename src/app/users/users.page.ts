@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { LoadingController, MenuController } from '@ionic/angular';
 import { FirestoreService } from '../services/firestore.service';
 
 @Component({
@@ -15,8 +15,11 @@ export class UsersPage implements OnInit {
   last_name: string;
   cedula: string;
   num_houses: string;
+  loading: any;
+
   constructor(public menuControler: MenuController,
-    public fitestoreService: FirestoreService) { }
+              public fitestoreService: FirestoreService,
+              public loadingController: LoadingController) { }
 
   ngOnInit() {
   }
@@ -31,6 +34,22 @@ export class UsersPage implements OnInit {
       num_houses: this.num_houses,
     };
     const id = this.fitestoreService.getId();
-    this.fitestoreService.createData(data,this.path,id);
+    this.presentLoading();
+
+    this.fitestoreService.createData(data,this.path,id).then(res => {
+      this.loading.dismiss();
+    }).catch(error => {
+    });;
   };
+
+  async presentLoading(){
+    this.loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      message: 'Guardando..',
+      duration: 2000
+    });
+    await this.loading.present();
+    // const {role,data} = await loading.onDidDismiss();
+    // console.log('Loading dismissed');
+  }
 }
