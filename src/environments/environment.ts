@@ -4,14 +4,14 @@
 
 export const environment = {
   production: false,
-  firebaseConfig : {
-    apiKey: 'AIzaSyBeLItmpJHNpRE7FYFk4qDsdYa3jcLo87c',
-    authDomain: "pruebainec-a9564.firebaseapp.com",
-    projectId: "pruebainec-a9564",
-    storageBucket: "pruebainec-a9564.appspot.com",
-    messagingSenderId: "1045517536885",
-    appId: "1:1045517536885:web:828c4165418c4fe60db23c",
-    measurementId: "G-NHYF0BWHB3"
+  firebaseConfig :{
+    apiKey: "AIzaSyBGv4BD5ZGlq6ncdSWRSZSFFRolLqdHmY4",
+    authDomain: "examenappmoviles-37af5.firebaseapp.com",
+    projectId: "examenappmoviles-37af5",
+    storageBucket: "examenappmoviles-37af5.appspot.com",
+    messagingSenderId: "488354439474",
+    appId: "1:488354439474:web:fb9cbea4756db4ab38372b",
+    measurementId: "G-PB7FXG6909"
   }
 };
 

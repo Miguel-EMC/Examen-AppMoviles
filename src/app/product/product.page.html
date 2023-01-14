@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="subtitulo">Configuración de producto</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon  color="primary" slot="icon-only" name="menu-outline">Menu</ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h3 class="subtitulo p-3 text-center encabezado">Ingrese datos del producto</h3>
+  <ion-item>
+    <ion-label class="normal" position="floating">Nombre:</ion-label>
+    <ion-input class="normal" type="text" inputmode="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label class="normal" position="floating">Detalles:</ion-label>
+    <ion-input class="normal" type="text" inputmode="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label class="normal" position="floating">Stock:</ion-label>
+    <ion-input class="normal"  type="number" inputmode="numeric"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label class="normal" position="floating">Precio:</ion-label>
+    <ion-input class="normal" type="number" inputmode="numeric"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label class="normal">Foto</ion-label>
+    <ion-buttons slot="end">
+      <ion-button>
+        <label for="file-upload">
+          <ion-icon slot="icon-only" name="camera-outline"></ion-icon>
+        </label>
+        <input  id="file-upload" style="display: none;" type="file" accept="image/*">
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+  <img class="image">
+  <ion-button
+  color="tertiary"
+  style="margin: 30px;"
+  expand="full"
+  >
+    Guardar
+  </ion-button>
+</ion-content>
