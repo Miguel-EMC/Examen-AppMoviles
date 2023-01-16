@@ -27,6 +27,7 @@ La aplicación debe tener además un splash screen y un metodo de autenticación
 
 - **FIFREBASE**
 
+<p align="center"><img src ="https://user-images.githubusercontent.com/74844624/212777487-1d50abf4-70aa-4214-8bd1-d2bd099b1d88.png" width="300"/></p>
 
 
 - **CRUD**
