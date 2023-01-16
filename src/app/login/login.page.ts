@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { LoadingController, MenuController, ToastController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 import { FirestorageService } from '../services/firestorage.service';
@@ -25,12 +25,17 @@ export class LoginPage implements OnInit {
   suscriberUserInfo: Subscription;
   ingresarEnabled = false;
   profiles = null;
+  loading: any;
 
   constructor(
     private authService: AuthService,
     public firestorageService: FirestorageService,
     public firestoreService: FirestoreService,
     public menuControler: MenuController,
+    public loadingController: LoadingController,
+    public toastController: ToastController,
+
+
   ) {
     this.authService.stateAuth().subscribe( res => {
       console.log(res);
@@ -101,9 +106,12 @@ export class LoginPage implements OnInit {
       .createDoc(this.profile, path, this.profile.uid)
       .then(() => {
         console.log('Usuario guardado con exito');
+        this.presentToast('Usuario guardado con exito');
+
       })
       .catch((error) => {
         console.log('Error al guardar el usuario');
+        this.presentToast('Error al guardar el usuario');
       });
   }
 
@@ -115,10 +123,11 @@ export class LoginPage implements OnInit {
     this.authService
       .login(credenciales.email, credenciales.password)
       .then((res) => {
-        console.log('Ingresando...');
+        this.presentToast('Bienvenido');
       })
       .catch((error) => {
         console.log('Error al ingresar');
+        this.presentToast('Error al ingresar');
       });
   }
   async salir() {
@@ -132,4 +141,13 @@ export class LoginPage implements OnInit {
       this.profile = res;
     });
    }
+   async presentToast(message: string){
+    const toast = await this.toastController.create({
+      message: message,
+      cssClass: 'normal',
+      duration: 2000
+    });
+    toast.present();
+   }
+
 }
