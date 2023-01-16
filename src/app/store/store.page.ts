@@ -1,24 +1,25 @@
 import { Component} from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
+import { Product } from '../product/models';
 import { AuthService } from '../services/auth.service';
 import { AvatarService } from '../services/avatar.service';
 import { FirestoreService } from '../services/firestore.service';
-import { Product } from '../product/models';
+
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-store',
+  templateUrl: './store.page.html',
+  styleUrls: ['./store.page.scss'],
 })
-export class HomePage {
+export class StorePage{
+
   private path = 'products';
   productos: Product[] = [];
-
   profile = null;
-  Bookings = [];
+
   constructor(
-    public menuControler: MenuController,
-    public firestoreService: FirestoreService,
+    private menuControler: MenuController,
+    private firestoreService: FirestoreService,
     private avatarService: AvatarService,
     private authService: AuthService,
     private router: Router,
@@ -41,4 +42,5 @@ export class HomePage {
       this.productos = res;
     });
   }
+
 }

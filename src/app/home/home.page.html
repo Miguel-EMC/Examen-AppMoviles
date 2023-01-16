@@ -1,20 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Examen App Moviles</ion-title>
+    <ion-title class="subtitulo">HOME</ion-title>
     <ion-buttons slot="start">
       <ion-button (click)="openMenu()">
         <ion-icon  color="primary" slot="icon-only" name="menu-outline">Menu</ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-button [routerLink]="['/profile']">
-        <ion-icon  color="primary" slot="icon-only" name="person-circle">Menu</ion-icon>
+      <ion-button (click)="logout()">
+        <ion-icon  color="primary" slot="icon-only" name="log-out"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <div *ngFor="let producto of productos">
-    <app-product [producto]="producto"></app-product>
-  </div>
+
 </ion-content>

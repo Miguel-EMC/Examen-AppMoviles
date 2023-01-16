@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="subtitulo">Examen App Moviles</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon  color="primary" slot="icon-only" name="menu-outline">Menu</ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div *ngFor="let producto of productos">
+    <ion-card>
+      <ion-img class="img-producto" [src]="producto.image"></ion-img>
+      <ion-item lines="full">
+        <ion-label class="subtitulo">{{producto.name}}</ion-label>
+      </ion-item>
+      <p class="tachado">Stock: {{producto.stock}}</p>
+      <p class="precio">{{producto.price}}$</p>
+      <ion-icon class="icon-producto" name="cart-sharp"></ion-icon>
+    </ion-card>
+  </div>
+</ion-content>

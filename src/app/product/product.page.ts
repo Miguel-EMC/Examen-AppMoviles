@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, LoadingController, MenuController, ToastController } from '@ionic/angular';
+import { AvatarService } from '../services/avatar.service';
 import { FirestorageService } from '../services/firestorage.service';
 import { FirestoreService } from '../services/firestore.service';
 import { Product } from './models';
@@ -19,13 +20,18 @@ export class ProductPage implements OnInit {
  newFile: '';
  private path = 'products';
  enabledNewProduct = false;
+ profile = null;
 
   constructor(public menuController: MenuController,
               public firestoreService: FirestoreService,
               public loadingController: LoadingController,
               public toastController: ToastController,
               public alertController: AlertController,
-              public firestorageService: FirestorageService) { }
+              public firestorageService: FirestorageService,
+              private avatarService: AvatarService,) {
+               this.avatarService.getUserProfile().subscribe((data) => {
+                this.profile = data;
+              });}
 
   ngOnInit() {
     this.getProducts();

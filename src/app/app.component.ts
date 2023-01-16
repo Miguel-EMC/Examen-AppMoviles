@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
-import { FirebaseauthService } from './services/firebaseauth.service';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +9,5 @@ import { FirebaseauthService } from './services/firebaseauth.service';
 export class AppComponent {
   constructor(
     private platform: Platform,
-    private firebaseauthService: FirebaseauthService,
   ) {}
 }

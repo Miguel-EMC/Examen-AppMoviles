@@ -25,8 +25,7 @@
        </ion-button>
      </ion-buttons>
     </ion-item>
-    <h3 class="subtitulo p-3 text-center encabezado">Ingrese datos del producto</h3>
-
+    <h3 class="subtitulo p-3 text-center encabezado" style="color: rgb(2, 13, 22);">Ingrese datos del producto</h3>
     <ion-item>
       <ion-label class="normal" position="floating">Nombre:</ion-label>
       <ion-input [(ngModel)]="newProduct.name" class="normal" type="text" inputmode="text"></ion-input>
@@ -60,7 +59,7 @@
   </div>
 
   <ion-card>
-    <h3 class="subtitulo p-3 text-center encabezado">Lista de productos</h3>
+    <h3 class="subtitulo p-3 text-center encabezado" style="color: rgb(2, 13, 22);">Lista de productos</h3>
     <ion-item *ngFor="let producto of productos">
       <ion-label class="normal">{{producto.name}}</ion-label>
       <ion-buttons slot="end">

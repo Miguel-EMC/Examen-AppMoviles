@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Perfil</ion-title>
+    <ion-title >Perfil</ion-title>
     <ion-buttons slot="start">
       <ion-button (click)="openMenu()">
         <ion-icon  color="primary" slot="icon-only" name="menu-outline">Menu</ion-icon>
@@ -9,54 +9,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div *ngIf="!uid.length">
-
-    <h3 class="subtitulo p-3 text-center encabezado">Ingrese sus datos</h3>
-
-    <ion-item *ngIf="!ingresarEnabled">
-      <ion-label class="normal" position="floating">Nombre:</ion-label>
-      <ion-input [(ngModel)]="profile.nombre" class="normal" type="text" inputmode="text"></ion-input>
-    </ion-item>
-    <ion-item >
-      <ion-label class="normal" position="floating">Email:</ion-label>
-      <ion-input name="email" [(ngModel)]="profile.email" class="normal" type="text" inputmode="text"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label class="normal" position="floating">Celular:</ion-label>
-      <ion-input [(ngModel)]="profile.celular" class="normal"  type="text" inputmode="text"></ion-input>
-    </ion-item>
-    <ion-item *ngIf="!ingresarEnabled">
-      <ion-label class="normal">Foto</ion-label>
-      <ion-buttons slot="end">
-        <ion-button>
-          <label for="file-upload">
-            <ion-icon slot="icon-only" name="images"></ion-icon>
-          </label>
-          <input (change)="newImageUpload($event)" id="file-upload" style="display: none;" type="file" accept="image/*">
-        </ion-button>
-      </ion-buttons>
-    </ion-item>
-    <ion-item *ngIf="!ingresarEnabled">
-      <img class="image" [src]="profile.foto">
-    </ion-item>
-
-    <div style="text-align: end; margin: 10px;">
-      <ion-button *ngIf="!ingresarEnabled" (click)="registrar()" class="normal" color="dark">Registrarse</ion-button>
-      <ion-button *ngIf="!ingresarEnabled"(click)=" ingresarEnabled=true" class="normal" color="dark">O ingresar</ion-button>
-      <ion-button *ngIf="ingresarEnabled" (click)=" ingresar()" class="normal" color="dark">Login</ion-button>
-      <ion-button *ngIf="ingresarEnabled" (click)="ingresarEnabled=false" class="normal" color="dark">O Registrarse</ion-button>
-
-    </div>
-  </div>
-
+<ion-content class="ion-padding">
   <div *ngIf="uid.length">
-
-    <h3 class="subtitulo p-3 text-center encabezado">Tu informacion</h3>
-
+    <h3 class="subtitulo p-3 text-center encabezado" style="color: rgb(2, 13, 22);">Tu informacion</h3>
     <ion-item>
       <ion-label class="normal" position="floating">Nombre:</ion-label>
       <ion-input [(ngModel)]="profile.nombre" class="normal" type="text" inputmode="text"></ion-input>
+      <ion-label class="normal" position="floating">Celular:</ion-label>
+      <ion-input [(ngModel)]="profile.celular" class="normal" type="number" inputmode="numeric"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label class="normal">Foto</ion-label>
@@ -75,9 +35,8 @@
     <div style="text-align: end; margin: 10px;">
       <ion-button (click)="guardarUser()" class="normal" color="dark">Guardar</ion-button>
     </div>
-
     <div style="text-align: end; margin: 10px;">
-      <ion-button (click)="salir()" class="normal" color="dark">Salir</ion-button>
+      <ion-button (click)="logout()" class="normal" color="dark">Salir</ion-button>
     </div>
   </div>
 </ion-content>

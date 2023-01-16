@@ -5,14 +5,13 @@ import { AuthService } from '../services/auth.service';
 import { FirestorageService } from '../services/firestorage.service';
 import { FirestoreService } from '../services/firestore.service';
 import { Profile } from './models';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.page.html',
-  styleUrls: ['./profile.page.scss'],
+  selector: 'app-login',
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
 })
-export class ProfilePage implements OnInit {
+export class LoginPage implements OnInit {
   profile: Profile = {
     uid: '',
     email: '',
@@ -32,7 +31,6 @@ export class ProfilePage implements OnInit {
     public firestorageService: FirestorageService,
     public firestoreService: FirestoreService,
     public menuControler: MenuController,
-    private router: Router
   ) {
     this.authService.stateAuth().subscribe( res => {
       console.log(res);
@@ -51,10 +49,7 @@ export class ProfilePage implements OnInit {
   openMenu() {
     this.menuControler.toggle('principal');
   }
-  async logout() {
-    await this.authService.logout();
-    this.router.navigateByUrl('/', { replaceUrl: true });
-  }
+
   initClinete(){
     this.uid = '';
     this.profile = {
